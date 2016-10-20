@@ -1,4 +1,4 @@
-# Kolmogorov metric 
+# Kolmogorov metric for obfuscation
 
 Compare the impact of various obfuscators on the algorithmic complexity of the target binary.
 
