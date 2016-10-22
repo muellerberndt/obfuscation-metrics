@@ -1,4 +1,4 @@
-# Finding Sensible Kolmogorov Complexity Values for Obfuscation Requirements
+# Evaluation of Obfuscating Transformations using Kolmogorov Complexity
 
 Compare the impact of various obfuscators on the algorithmic complexity of the target binary.
 
