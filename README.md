@@ -1,8 +1,8 @@
 # Evaluating Obfuscators using Kolmogorov Complexity
 
-Kolmogorov complexity - a.k.a. as descriptive complexity or algorithmic entropy - is the length of the shortest computer program that produces an object as output. Effective obfuscating transformations generally increase Kolmogorov complexity of the obfuscated program. In other words, by wrapping a function into more complex, redundant operations and data lookups, it becomes more difficult to comprehend what's actually goong on.
+Kolmogorov complexity - a.k.a. as descriptive complexity or algorithmic entropy - is the length of the shortest computer program that produces an object as output. Effective obfuscating transformations generally increase Kolmogorov complexity of the obfuscated program. In other words, by wrapping a function into more complex, redundant operations and data lookups, more information is required to describe the program. From a blackbox perspective, it becomes more difficult to comprehend what the program is actually doing.
 
-The goal of this project os to compare the impact of various obfuscators on the Kolmogorov complexity of a sample binary. Kolmogorov complexity is non-computable, but can be approximated using lossless compression.
+The goal of this project is to compare the impact of various obfuscators on the Kolmogorov complexity (approximated using lossless compression) of a sample binary.
 
 ## Background
 
@@ -13,9 +13,14 @@ In other words, the reverse engineering effort increases with the amount of rand
 In (2) Pinto et. al. propose the Normalized Kolmogorov Complexity measure which expresses code irregularity of a given program independent of its size. This is calculated by comparing the algorithmic complexity value of the obfuscated bimary against the maximum achievable complexity (upper bounded by the length of the program). The problem with this approach is that powerful obfuscation techniques significantly increase the size of a program, but do not necessarily increase code variability relative to the program size. We are therefore more interested in the *absolute increase in algorithmic complexity* in the obfuscated program in comparison to the "clean" binary.
 
 To illustrate why this makes more sense, think of a small function (such as a cryptographic algorithm) being obfuscated. An implementation of a run-of-the-mill cryptographic primitive like AES can be compressed to about 3-4 kB. Typically, to obscure such a function, it isn’t enough to make it look a bit more random. To make it incomprehensible, one needs to increase complexity by a significant amount: For example, one could virtualize the function, or encode parts of the cryptographic computation into lookup tables protected with mixing bijections. Depending on how much overhead is added, the obfuscated program may grow to a size of 100kB or more. Even though this added complexity (in form of virtualization layers or mixing bijections) clearly increases the reverse engineering effort, this is not reflected by the normalized complexity metric: It could conceivably remain unchanged or even decrease. What matters is by how much the obfuscating transformations increase the absolute algorithmic complexity.
+
 Conveniently, Kolmogorov complexity can be approximated by lossless compression (2)(3)(4). We apply bzip2 compression, which is one of the most effective lossless compression algorithms to approximate Kolmogorov complexity. For the purpose of assessing reverse engi the idea is to obtain the absolute Kolmogorov complexity measure (simply put, compressed size in bytes) – denoted as K(.) - of the compiled binary or byte-code of the clean implementation R and obfuscated implementation O, and then calculate the difference by which the obfuscated version is larger:
 
 ΔK = K(O) - K(R)
+
+## Sample program
+
+(todo)
 
 ## References
 
