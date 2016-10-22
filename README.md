@@ -1,4 +1,4 @@
-# Kolmogorov metric for obfuscation
+# Finding Sensible Kolmogorov Complexity Values for Obfuscation Requirements
 
 Compare the impact of various obfuscators on the algorithmic complexity of the target binary.
 
@@ -19,4 +19,10 @@ Conveniently, Kolmogorov complexity can be approximated by lossless compression 
 
 ## References
 
-(TODO)
+1. *Algorithmic Information Theory for Obfuscation Security.* Rabih Mohsen, Alexandre Miranda Pinto. 2015. International Conference on Security and Cryptography (SECRYPT 2015). ISBN 978-989-758-117-5.
+
+2. *Evaluating Obfuscation Security: A Quantitative Approach.* Rabih Mohsen, Alexandre Miranda Pinto. 2015. Proceedings of the 12th International Conference on Security and Cryptography. 978-3-319-30303-1.
+
+3. Li, M. and Vita ́nyi, P. M. *An Introduction to Kolmogorov Complexity and Its Applications.* 3. s.l. : Springer Publishing Company, 2008. 978-0-387-49820-1.
+
+
