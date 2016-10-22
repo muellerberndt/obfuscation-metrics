@@ -1,8 +1,8 @@
-# Evaluation of Obfuscating Transformations using Kolmogorov Complexity
+# Evaluating Obfuscators using Kolmogorov Complexity
 
-Compare the impact of various obfuscators on the algorithmic complexity of the target binary.
+Kolmogorov complexity - a.k.a. as descriptive complexity or algorithmic entropy - is the length of the shortest computer program that produces an object as output. Effective obfuscating transformations generally increase Kolmogorov complexity of the obfuscated program. In other words, by wrapping a function into more complex, redundant operations and data lookups, it becomes more difficult to comprehend what's actually goong on.
 
-(TODO)
+The goal of this project os to compare the impact of various obfuscators on the Kolmogorov complexity of a sample binary. Kolmogorov complexity is non-computable, but can be approximated using lossless compression.
 
 ## Background
 
