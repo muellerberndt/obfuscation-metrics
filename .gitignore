@@ -1,4 +1,4 @@
 .DS_Store
-*mini-totp
+mini-totp
 *.o
 *.bz2

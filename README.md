@@ -14,13 +14,13 @@ In (2) Pinto et. al. propose the Normalized Kolmogorov Complexity measure which 
 
 To illustrate why this makes more sense, think of a small function (such as a cryptographic algorithm) being obfuscated. An implementation of a run-of-the-mill cryptographic primitive like AES can be compressed to about 3-4 kB. Typically, to obscure such a function, it isn’t enough to make it look a bit more random. To make it incomprehensible, one needs to increase complexity by a significant amount: For example, one could virtualize the function, or encode parts of the cryptographic computation into lookup tables protected with mixing bijections. Depending on how much overhead is added, the obfuscated program may grow to a size of 100kB or more. Even though this added complexity (in form of virtualization layers or mixing bijections) clearly increases the reverse engineering effort, this is not reflected by the normalized complexity metric: It could conceivably remain unchanged or even decrease. What matters is by how much the obfuscating transformations increase the absolute algorithmic complexity.
 
-Conveniently, Kolmogorov complexity can be approximated by lossless compression (2)(3)(4). We apply bzip2 compression, which is one of the most effective lossless compression algorithms to approximate Kolmogorov complexity. For the purpose of assessing reverse engi the idea is to obtain the absolute Kolmogorov complexity measure (simply put, compressed size in bytes) – denoted as K(.) - of the compiled binary or byte-code of the clean implementation R and obfuscated implementation O, and then calculate the difference by which the obfuscated version is larger:
+Conveniently, Kolmogorov complexity can be approximated by lossless compression (2)(3)(4). We apply bzip2 compression, which is one of the most effective lossless compression algorithms to approximate Kolmogorov complexity. For the purpose of assessing reverse engi the idea is to obtain the absolute Kolmogorov complexity measure (simply put, compressed size in bytes) – or *K-estimator K(.)* - of the compiled binary or byte-code of the clean implementation R and obfuscated implementation, and then calculate the difference by which the obfuscated version is larger:
 
-ΔK = K(O) - K(R)
+<center>*ΔK = K(O) - K(R)*</center>
 
 ## Sample program
 
-Our test object is a self-contained [OATH TOTP generator written in C](/b-mueller/kolmogorov-metric/tree/master/testprograms/oath-totp). OATH TOTP is an extension to the HMAC-based One-Time Password (HOTP) algorithm that adds support for a time-based moving factor (5). The program consists of a TOTP implementation and SHA1 hashing function.
+Our test object is a self-contained [OATH TOTP generator written in C](https://github.com/b-mueller/kolmogorov-metric/tree/master/testprograms/oath-totp). OATH TOTP is an extension to the HMAC-based One-Time Password (HOTP) algorithm that adds support for a time-based moving factor (5). The program consists of a TOTP implementation and SHA1 hashing function.
 
 ### Compiling
 
