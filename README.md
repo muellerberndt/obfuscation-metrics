@@ -20,7 +20,11 @@ Conveniently, Kolmogorov complexity can be approximated by lossless compression 
 
 ## Sample program
 
-(todo)
+Our test object is a self-contained [OATH TOTP generator written in C](/b-mueller/kolmogorov-metric/tree/master/testprograms/oath-totp). OATH TOTP is an extension to the HMAC-based One-Time Password (HOTP) algorithm that adds support for a time-based moving factor (5). The program consists of a TOTP implementation and SHA1 hashing function.
+
+### Compiling
+
+(TODO)
 
 ## References
 
@@ -31,4 +35,6 @@ Conveniently, Kolmogorov complexity can be approximated by lossless compression 
 3. Ming Li and and Paul M. B. Vita ́nyi. *An Introduction to Kolmogorov Complexity and Its Applications.* 3. s.l. : Springer Publishing Company, 2008. ISBN 978-0-387-49820-1.
 
 4. Paul M. B. Vita ́nyi, Frank J. Balbach, Rudi L. Cilibrasi, Ming Li. *Normalized Information Distance.* [book auth.] Frank, Dehmer, Matthias Emmert-Streib. Information Theory and Statistical Learning. s.l. : Springer, 2009. ISBN 978-0-387-84816-7
+
+5. [RFC6238] M'Raihi D., Machani S., Pei M., Rydell J., "TOTP: Time-Based One-Time Password Algorithm", May 2011. ISSN: 2070-1721
 
