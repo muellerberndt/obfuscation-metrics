@@ -24,7 +24,9 @@ Our test object is a self-contained [OATH TOTP generator written in C](https://g
 
 ### Compiling
 
-(TODO)
+Samples are compiled with clang distributed with [Android NDK 13b](https://github.com/android-ndk/ndk/wiki) and compressed with bzip2 version 1.0.6.
+
+(... todo ... discuss in 'issues' section)
 
 ## References
 
