@@ -4,9 +4,9 @@ The Mobile Application Security Verification Standard (MASVS) is a standard for 
 
 Level 4 of the MASVS requires the use of hardware-based isolation features, such as SEE or TEE. However, as specialized hardware is not always available, it allows for strong software protection and obfuscation as a subsitute. The software protection requirements are listed in MASVS V8 - "Resiliency Against Reverse Engineering":
 
-- V8.16: Verify that sensitive computations take place in a trusted environment that is isolated from the mobile operating system. Hardware-based SE or TEE should be used whenever available.
+- **V8.16: Verify that sensitive computations take place in a trusted environment that is isolated from the mobile operating system. Hardware-based SE or TEE should be used whenever available.**
 
-- V8.17:If hardware-based isolation is unavailable, verify that a strong form of obfuscation has been applied to isolate sensitive data and computations, and verify the robustness of the obfuscation
+- **V8.17: If hardware-based isolation is unavailable, verify that a strong form of obfuscation has been applied to isolate sensitive data and computations, and verify the robustness of the obfuscation.**
 
 Obfuscation is a controversial topic however, and there is currently no industry standard defining *strong* obfuscation. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
 
@@ -23,8 +23,9 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 * Outline a *pratical* verification process that can be used by mobile appsec experts in planning and white-box testing.
 
-== Obfuscation Methods
-
-== Metrics
-
+## Metrics
 - [Kolmogorov Complexity]()
+
+## Obfuscation Methods
+
+
