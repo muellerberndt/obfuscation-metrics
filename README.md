@@ -24,8 +24,13 @@ Obfuscation is a controversial topic however, and there is currently no industry
 * Outline a *pratical* verification process that can be used by mobile appsec experts in planning and white-box testing.
 
 ## Metrics
-- [Kolmogorov Complexity]()
+- [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
 
 ## Obfuscation Methods
+
+## Sample Programs
+
+- [OATH-TOTP](https://github.com/b-mueller/obfuscation-metrics/tree/master/testprograms/oath-totp)
+
 
 
