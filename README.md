@@ -1,4 +1,4 @@
-# Obfuscation Effectiveness Metrics
+# Processes and Metrics for Assessing Obfuscation Effectiveness 
 
 The Mobile Application Security Verification Standard (MASVS) is a standard for mobile app security. It is meant to be used by mobile software architects and developers seeking to develop secure mobile applications and as a basis for mobile app security testing methodologies. The MASVS lists requirements for both security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency.
 
