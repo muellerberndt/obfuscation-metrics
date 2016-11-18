@@ -36,6 +36,7 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 ## Metrics
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
+- [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02_normalized_compression_distance.md)
 
 ## Obfuscation Methods
 
