@@ -25,11 +25,17 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 ## Threat Model
 
-Before we attempt to define requirements and metrics, we need to know what we are actually defending against. By obfuscating code and data, we aim to increase the effort adversaries need to invest to achieve certain goals. The following table states a threat model that looks at the obfuscated app from the attacker's perspective.
+Before we attempt to define requirements and metrics, we need to know what we are actually defending against. By obfuscating code and data, we aim to increase the effort adversaries need to invest to achieve certain goals.
 
-|Adversary's goal|Example|Counter-measure|
+The obfuscation metrics project is concerned only with obfuscating transformations applied to a program. In practice, defensive mechanisms, such as root detection, file and memory integrity checks and anti-debugging are an integral part of an effective software protection scheme. Obfuscation should always be applied in combination with multiple defensive mechanisms. The MASVS and MSTG contains separate requirements and testing procedures for such mechanisms.
+
+The following table states a threat model that looks at the obfuscated app from the attacker's perspective.
+
+|Goal of the adversary|Example|Countermeasure|
 |---|---|---|
-|Todo|todo|todo|
+|1.) Comprehend all or parts of the code and/or data in the program with the goal of replicating some functionality. For example, implementation details (code) or cryptographic keys (data).| TODO |Transform code and data to hide its semantics. E.g.: computing the same function(s) in more complicated ways and/or encoding data in ways that obscure its meaning. Effective transformations make the code and data appear near-random. |
+|2.) Tamper with the program to change its function. |Modify an online game to enable features such as infinite in-game currency. |Transform code and data to hide its semantics, and employ defensive mechanisms such as anti-debugging, anti-tampering and integrity checks. To modify a function, the adversary must first understand at least the relevant parts of the code / data representing the function. |
+|3.) Re-use all or parts of the program to replicate some functionality. |Bypass digital media usage restrictions could by extracting the encryption routine from a media player and include it in a counterfeit player, which decrypts the digital media without enforcing the contained usage policies.|Transform code and data to hide its semantics, and employ a provisioning system that ties correct execution of the code to a specific device (device binding).  |
 
 ## Metrics
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
