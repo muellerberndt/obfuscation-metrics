@@ -1,8 +1,8 @@
-# Processes and Metrics for Assessing Obfuscation Effectiveness 
+# Processes and Metrics for Assessing Obfuscation Effectiveness
 
 The Mobile Application Security Verification Standard (MASVS) is a standard for mobile app security. It is meant to be used by mobile software architects and developers seeking to develop secure mobile applications and as a basis for mobile app security testing methodologies. The MASVS lists requirements for both security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency.
 
-Level 4 of the MASVS requires the use of hardware-based isolation features, such as SEE or TEE. However, as specialized hardware is not always available, it allows for strong software protection and obfuscation as a subsitute. The software protection requirements are listed in MASVS V8 - "Resiliency Against Reverse Engineering":
+Level 4 of the MASVS requires the use of hardware-based isolation features, such as SEE or TEE. However, as specialized hardware is not always available, it allows for strong software protection and obfuscation as a substitute. The software protection requirements are listed in MASVS V8 - "Resiliency Against Reverse Engineering":
 
 - **V8.16: Verify that sensitive computations take place in a trusted environment that is isolated from the mobile operating system. Hardware-based SE or TEE should be used whenever available.**
 
@@ -14,14 +14,25 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 * For each obfuscation method, determine a list of minimum requirements to be fulfilled, such as:
 
-	* White-box must be resilent against DFA
+	* White-box must be resilient against DFA
 
 * For each obfuscation method, determine measurable properties such as:
 
 	* Minimum algorithmic complexity of virtual machine interpreter
 	* Minimum size/complexity of lookup tables in white-box crypto
 
-* Outline a *pratical* verification process that can be used by mobile appsec experts in planning and white-box testing.
+* Outline a *practical* verification process that can be used by mobile appsec experts in planning and white-box testing.
+
+## Threat Model
+
+
+## Transformations with Quantifiable Properties
+
+- [Control flow obfuscation](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
+- [Data obfuscation](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
+- [Virtualization](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
+- [White-box cryptography](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
+
 
 ## Metrics
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
@@ -31,6 +42,3 @@ Obfuscation is a controversial topic however, and there is currently no industry
 ## Sample Programs
 
 - [OATH-TOTP](https://github.com/b-mueller/obfuscation-metrics/tree/master/testprograms/oath-totp)
-
-
-
