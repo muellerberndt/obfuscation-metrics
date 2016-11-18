@@ -25,6 +25,11 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 ## Threat Model
 
+Before we attempt to define requirements and metrics, we need to know what we are actually defending against. By obfuscating code and data, we aim to increase the effort adversaries need to invest to achieve certain goals. The following table states a threat model that looks at the obfuscated app from the attacker's perspective.
+
+|Adversary's goal|Example|Counter-measure|
+|---|---|---|
+|Todo|todo|todo|
 
 ## Metrics
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
