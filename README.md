@@ -26,19 +26,19 @@ Obfuscation is a controversial topic however, and there is currently no industry
 ## Threat Model
 
 
-## Transformations with Quantifiable Properties
-
-- [Control flow obfuscation](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
-- [Data obfuscation](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
-- [Virtualization](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
-- [White-box cryptography](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
-
-
 ## Metrics
-- [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/01_kolmogorov_complexity.md)
-- [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02_normalized_compression_distance.md)
+- [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
+- [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md)
 
-## Obfuscation Methods
+## Transformations
+
+### Control flow obfuscation
+
+### Data obfuscation
+
+### Virtualization
+
+### White-box cryptography
 
 ## Sample Programs
 
