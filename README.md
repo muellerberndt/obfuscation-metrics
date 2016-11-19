@@ -12,14 +12,9 @@ Obfuscation is a controversial topic however, and there is currently no industry
 
 * List obfuscating transformations that, when applied correctly, result in (what we consider) strong resiliency against static and dynamic analysis. Allowed types must have quantifiable properties.
 
-* A list of requirements and recommended parameters for each obfuscation type (e.g. complexity of virtual machine interpreter, white-box crypto);
+* A list of requirements and recommended parameters for each obfuscation type (e.g. minimum algorithmic complexity of virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
 
-* At least one metric for each type of obfuscation that
-
-	* Minimum algorithmic complexity of virtual machine interpreter
-	* Minimum size/complexity of lookup tables in white-box crypto
-
-* Outline a *practical* verification process that can be used by mobile appsec experts in planning and white-box testing.
+* Outline *practical* verification processes that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
 
 ## Threat Model
 
