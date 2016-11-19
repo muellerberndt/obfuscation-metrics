@@ -36,17 +36,13 @@ The following table states a threat model that looks at the obfuscated app from 
 
 ## Definition of *Strong* Obfuscation
 
+## Transformations and Testing Processes
 
+- [Control Flow and Data Obfuscation](https://github.com/b-mueller/obfuscation-metrics/blob/master/03a_control_flow_and_data_obfuscation.md)
+- [Virtualization](https://github.com/b-mueller/obfuscation-metrics/blob/master/03b_virtualization.md)
+- [White-box Cryptography](https://github.com/b-mueller/obfuscation-metrics/blob/master/03c_whitebox_cryptography.md)
 
-## Transformations
-
-### Control flow obfuscation
-
-### Data obfuscation
-
-### Virtualization
-
-### White-box cryptography
+## Tools
 
 ## Sample Programs
 
