@@ -16,4 +16,5 @@ Mini-TOTP is a self-contained OATH-TOTP implementation with a hardcoded seed. No
 
 |Transformation|Cmdline|ΔK|NCD|
 |---|---|---|---|
-|2 Opaque predicates per function|tigress --Transform=InitOpaque --Functions=* --Transform=UpdateOpaque --Functions=* --Transform=AddOpaque --Functions=* --AddOpaqueCount=2 --AddOpaqueKinds=call,bug,true  --Transform=CleanUp --Functions=* --out=test-01.c mini-totp.c| 3,722| 1.0059 |
+|2 opaque predicates per function|tigress --Transform=InitOpaque --Functions=* --Transform=UpdateOpaque --Functions=* --Transform=AddOpaque --Functions=* --AddOpaqueCount=2 --AddOpaqueKinds=call,bug,true  --Transform=CleanUp --Functions=* --out=test-01.c mini-totp.c| 1,939| 0.7866 |
+|10 opaque predicates per function|tigress --Transform=InitOpaque --Functions=* --Transform=UpdateOpaque --Functions=* --Transform=AddOpaque --Functions=* --AddOpaqueCount=10 --AddOpaqueKinds=call,bug,true  --Transform=CleanUp --Functions=* --out=test-01.c mini-totp.c| 5,079| 0.8690 |

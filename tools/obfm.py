@@ -15,6 +15,11 @@ ncBytesX = len(bz2.compress(bytesX))
 ncBytesY = len(bz2.compress(bytesY))
 
 # see http://phrack.org/issues/68/15.html
+# The formula returns a value from returns a value from 0.0 (maximally similar) to 1.0 (maximally dissimilar).
+
+print("ncBytesXY: " + str(ncBytesXY))
+print("ncBytesX: " + str(ncBytesX))
+print("ncBytesY: " + str(ncBytesY))
 
 ncd = float(ncBytesXY - min(ncBytesX, ncBytesY)) / max(ncBytesX, ncBytesY)
 kc = ncBytesY - ncBytesX
