@@ -44,6 +44,8 @@ The following table states a threat model that looks at the obfuscated app from 
 
 ## Tools
 
+- [Metrics script](https://github.com/b-mueller/obfuscation-metrics/blob/master/tools/obfm.py)
+
 ## Sample Programs
 
 - [OATH-TOTP](https://github.com/b-mueller/obfuscation-metrics/tree/master/testprograms/oath-totp)
