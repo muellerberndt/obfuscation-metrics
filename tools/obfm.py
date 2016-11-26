@@ -21,4 +21,3 @@ kc = ncBytesY - ncBytesX
 
 print("ΔK: " + str(kc))
 print("NCD: " + str(ncd))
-
