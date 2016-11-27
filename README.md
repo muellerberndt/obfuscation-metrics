@@ -10,28 +10,15 @@ Level 4 of the MASVS requires the use of hardware-based isolation features, such
 
 Obfuscation is a controversial topic however, and there is currently no industry consensus or standard as to what constitutes *strong* obfuscation. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
 
-* List obfuscating transformations that, when applied correctly, result in (what we consider) strong resiliency against static and dynamic analysis. Allowed types must have quantifiable properties.
+* List obfuscating transformations that, when applied correctly, result in (what we consider) strong resiliency against static and dynamic analysis.
 
 * A list of requirements and recommended parameters for each obfuscation type (e.g. minimum algorithmic complexity of virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
 
-* Outline *practical* verification processes that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
-
-## Threat Model
-
-By obfuscating programs, we aim to increase the effort adversaries need to invest to achieve certain goals. The following table states a threat model that looks at the obfuscated app from the attacker's perspective.
-
-|Goal of the adversary|Example|Countermeasure|
-|---|---|---|
-|1.) Comprehend all or parts of the code and/or data in the program with the goal of replicating some functionality. | Extract a cryptographic key from the implementation of a cryptographic primitive, e.g. AES key.  |Transform code and/or data to hide its semantics. E.g.: computing the same function(s) in more complicated ways and/or encoding data in ways that obscure its original meaning. Effective transformations make the code and data appear near-random. |
-|2.) Tamper with the program to change its function. | Modify code of an online game to enable features such as infinite in-game currency.  |Transform code and/or data to obscure the implementation, making it difficult to make changes. Additionally, defensive mechanisms such as anti-debugging, anti-tampering and integrity checks. |
-|3.) Re-use all or parts of the program to replicate some functionality (code lifting). |Extract the encryption routine from a media player and include it in a counterfeit player, which decrypts the digital media without enforcing the contained usage policies.|Transform code and/or data to hide its semantics, and tie the code to the environment so that it only executes correctly on the specific device (device binding). |
-
-The obfuscation metrics project is concerned only with obfuscating transformations applied to a program. In practice, defensive mechanisms, such as root detection, file and memory integrity checks and anti-debugging are an integral part of an effective software protection scheme. Obfuscation should always be applied in combination with multiple defensive mechanisms. The MASVS and MSTG contains separate requirements and testing procedures for such mechanisms.
+* *Practical* verification processes that can be used by mobile appsec experts for testing the robustness of obfuscation using white-box and black-box analysis.
 
 ## Allowed Transformations
 
-Before we can even attempt to define minimal requirements for *good enough* obfuscation, we need to find properties that are quantifiable.
-Many types of obfuscating transformations are available, but not all of them offer such properties. For example, layout obfuscation makes a compiled program less intelligible to humans, but is "free" in the sense that it doesn’t increase the size or speed of operation of the program. To fulfill our notion of strong obfuscation, the transformations must be applied must:
+Before we can attempt to define minimal requirements for *good enough* obfuscation, we need to find quantifiable properties that correlate with obfuscation strength. Some types of transformations, such as layout obfuscations (which work by discarding semantic information meaningful to humans, but do not impact alter program size and performance) do not easily lend themselves to being measured. To fulfill our notion of strong obfuscation, transformations must be applied that:
 
 - Result in a measurable increase in one or more properties, such as algorithmic complexity added and compression distance to the original binary;
 
