@@ -4,7 +4,7 @@ The [Mobile Application Security Verification Standard (MASVS)](https://github.c
 
 ## The problem
 
-There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering. One of the overall goals in the MASVS / MSTG is to define practical processes that can be used by mobile app-sec experts for assessing the robustness of software protections using white-box and black-box analysis. The "obfuscation metrics" project is part of this larger effort.
+There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering. One of the overall goals in the MASVS / MSTG is to define practical processes that can be used by mobile app-sec experts for assessing the robustness of software protections. The "obfuscation metrics" project is part of this larger effort.
 
 ### The OWASP model
 
