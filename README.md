@@ -14,7 +14,7 @@ There is no practical, repeatable process to verify whether, and to what grade, 
 
 * Define practical processes that can be used by mobile app-sec experts for assessing the robustness of obfuscation using white-box and black-box analysis.
 
-The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *good enough* obfuscation as per the current industry standards and known de-obfuscation methods. We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
+The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *strong resiliency* (see definition below). We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
 
 - Adversaries have are highly skilled and knowledgable about reverse engineering techniques on the target architecture (Android / iOS) and have access to commercial state-of-the-art tools;
 
