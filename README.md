@@ -1,37 +1,50 @@
 # Processes and Metrics for Assessing Obfuscation Effectiveness
 
-The Mobile Application Security Verification Standard (MASVS) is a standard for mobile app security. It is meant to be used by mobile software architects and developers seeking to develop secure mobile applications and as a basis for mobile app security testing methodologies. The MASVS lists requirements for both security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency.
+The Mobile Application Security Verification Standard (MASVS) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the  Mobile Security Testing Guide (MSTG) which outlines the necessary controls in more details for each mobile operation system (currently Android and iOS).
 
-Level 4 of the MASVS requires the use of hardware-based isolation features, such as SEE or TEE. However, as specialized hardware is not always available, it allows for strong software protection and obfuscation as a substitute. The software protection requirements are listed in MASVS V8 - "Resiliency Against Reverse Engineering":
+## The problem
 
-- **V8.16: Verify that sensitive computations take place in a trusted environment that is isolated from the mobile operating system. Hardware-based SE or TEE should be used whenever available.**
+There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering.
 
-- **V8.17: If hardware-based isolation is unavailable, verify that a strong form of obfuscation has been applied to isolate sensitive data and computations, and verify the robustness of the obfuscation.**
+Obfuscation is a controversial topic, and there is currently no industry consensus or standard as to what constitutes *strong* obfuscation. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
 
-Obfuscation is a controversial topic however, and there is currently no industry consensus or standard as to what constitutes *strong* obfuscation. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
+* List obfuscating transformations that, when applied correctly, result in (what currently consider) strong resiliency against manual hybrid static / dynamic analysis;
 
-* List obfuscating transformations that, when applied correctly, result in (what we consider) strong resiliency against static and dynamic analysis. Allowed types must have quantifiable properties.
+* A list of verifiable basic requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance),  along with *practical* verification processes.
 
-* A list of requirements and recommended parameters for each obfuscation type (e.g. minimum algorithmic complexity of virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
+* A list of requirements and recommended parameters for each specific types of obfuscation (e.g. requirements for virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
 
-* Outline *practical* verification processes that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
+* that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
 
-## Threat Model
+## The MASVS model
 
-By obfuscating programs, we aim to increase the effort adversaries need to invest to achieve certain goals. The following table states a threat model that looks at the obfuscated app from the attacker's perspective.
+The MASVS attempts to tackle this problem by defining a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
 
-|Goal of the adversary|Example|Countermeasure|
-|---|---|---|
-|1.) Comprehend all or parts of the code and/or data in the program with the goal of replicating some functionality. | Extract a cryptographic key from the implementation of a cryptographic primitive, e.g. AES key.  |Transform code and/or data to hide its semantics. E.g.: computing the same function(s) in more complicated ways and/or encoding data in ways that obscure its original meaning. Effective transformations make the code and data appear near-random. |
-|2.) Tamper with the program to change its function. | Modify code of an online game to enable features such as infinite in-game currency.  |Transform code and/or data to obscure the implementation, making it difficult to make changes. Additionally, defensive mechanisms such as anti-debugging, anti-tampering and integrity checks. |
-|3.) Re-use all or parts of the program to replicate some functionality (code lifting). |Extract the encryption routine from a media player and include it in a counterfeit player, which decrypts the digital media without enforcing the contained usage policies.|Transform code and/or data to hide its semantics, and tie the code to the environment so that it only executes correctly on the specific device (device binding). |
+1. Strip information
+2. Obfuscate control flow and data
+3. Inhibit reverse engineering processes and tools
 
-The obfuscation metrics project is concerned only with obfuscating transformations applied to a program. In practice, defensive mechanisms, such as root detection, file and memory integrity checks and anti-debugging are an integral part of an effective software protection scheme. Obfuscation should always be applied in combination with multiple defensive mechanisms. The MASVS and MSTG contains separate requirements and testing procedures for such mechanisms.
+In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and type 3 transformations is sufficient. These transformations are generally easy to apply and do not adversely impact the size and performance of the program. However, in some cases it is desirable to apply stronger protections - for example to protect a sensitive computation on Android devices without a dedicated cryptographic processor. In this case, MASVS L4 allows for the use of "advanced" forms of control flow and data obfuscation. This is where things get complicated.
 
-## Allowed Transformations
+## Goals of this project
 
-Before we can even attempt to define minimal requirements for *good enough* obfuscation, we need to find properties that are quantifiable.
-Many types of obfuscating transformations are available, but not all of them offer such properties. For example, layout obfuscation makes a compiled program less intelligible to humans, but is "free" in the sense that it doesn’t increase the size or speed of operation of the program. To fulfill our notion of strong obfuscation, the transformations must be applied must:
+The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *good enough* obfuscation as per the current industry standards and known de-obfuscation methods. We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
+
+- Adversaries have are highly skilled and knowledgable about reverse engineering techniques on the target architecture (Android / iOS) and have access to commercial state-of-the-art tools;
+
+- Adversaries are well-informed about current attacks on the type(s) of obfuscation used (e.g. reversing virtual machines using symbolic execution, recovering keys from white-boxes using DFA);
+
+- Adversaries start with zero knowledge about the target app in question, and without details about the particular implementation obfuscating transformations applied.
+
+Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that likely requires the adversary to invest *at least one man-month of work to fully de-obfuscate the program.*
+
+Note that is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
+
+Note that the situation is similar to "regular" security testing: In practical scenarios, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
+
+## What is this subproject about?
+
+Note that this project is concerned only with type 2 transformations as defined above. This includes transformations that:
 
 - Result in a measurable increase in one or more properties, such as algorithmic complexity added and compression distance to the original binary;
 
@@ -46,6 +59,7 @@ As a result of these transformations, the original function(s) is computed in mo
 
 - Pattern-based obfuscation, where instructions are replaced with more complicated instruction sequences
 - Adding opaque predicates
+- Just-in-Time compilation
 - Control flow flattening with added logic for context manipulation
 - Inserting junk code
 - Data encoding and reordering
