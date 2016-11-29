@@ -14,7 +14,7 @@ Obfuscation is a controversial topic, and there is currently no industry consens
 
 * A list of requirements and recommended parameters for each specific types of obfuscation (e.g. requirements for virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
 
-* that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
+* Processes that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
 
 ## The MASVS model
 
