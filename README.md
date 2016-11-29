@@ -1,6 +1,6 @@
 # Processes and Metrics for Assessing Obfuscation Effectiveness
 
-The Mobile Application Security Verification Standard (MASVS) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the  Mobile Security Testing Guide (MSTG) which outlines the necessary controls in more details for each mobile operation system (currently Android and iOS).
+The [Mobile Application Security Verification Standard (MASVS)](https://github.com/OWASP/owasp-masvs) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the [Mobile Security Testing Guide (MSTG)](https://github.com/OWASP/owasp-mstg) which outlines the necessary controls in more details for each mobile operation system (currently Android and iOS).
 
 ## The problem
 
@@ -10,15 +10,15 @@ Obfuscation is a controversial topic, and there is currently no industry consens
 
 * List obfuscating transformations that, when applied correctly, result in (what currently consider) strong resiliency against manual hybrid static / dynamic analysis;
 
-* A list of verifiable basic requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance),  along with *practical* verification processes.
+* List verifiable basic parameters that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance), along with *practical* verification processes.
 
-* A list of requirements and recommended parameters for each specific types of obfuscation (e.g. requirements for virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
+* List of requirements and recommended parameters for each specific types of obfuscation (e.g. requirements for virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
 
-* Processes that can be used by mobile appsec experts for assessing and / or testing the robustness of obfuscation using white-box and black-box analysis.
+* Define processes that can be used by mobile appsec experts for assessing the robustness of obfuscation using white-box and black-box analysis.
 
 ## The MASVS model
 
-The MASVS attempts to tackle this problem by defining a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
+The MASVS defines a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
 
 1. Strip information
 2. Obfuscate control flow and data
@@ -38,9 +38,9 @@ The field of control flow and data obfuscation is highly diverse and somewhat co
 
 Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that likely requires the adversary to invest *at least one man-month of work to fully de-obfuscate the program.*
 
-Note that is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
+Note that it is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
 
-Note that the situation is similar to "regular" security testing: In practical scenarios, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
+The situation is similar to "regular" security testing: In practical scenarios, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
 ## What is this subproject about?
 
