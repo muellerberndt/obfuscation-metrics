@@ -34,7 +34,9 @@ Such transformations also have the following properties:
 
 ### Project goals
 
-* List obfuscating transformations that, when applied correctly, result in (what is currently considered) strong resiliency against manual hybrid static / dynamic analysis;
+* Find an agreeable definition of *strong resiliency* against reverse engineering against manual hybrid static / dynamic analysis (a possible definition is proposed below);
+
+* List obfuscating transformations that, when applied correctly, result in *strong resiliency*;
 
 * List verifiable basic requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance), along with *practical* verification processes.
 
