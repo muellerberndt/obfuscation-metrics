@@ -4,29 +4,15 @@ The [Mobile Application Security Verification Standard (MASVS)](https://github.c
 
 ## The problem
 
-There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering.
+There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
 
-Obfuscation is a controversial topic, and there is currently no industry consensus or standard as to what constitutes *strong* obfuscation. The goal of this project is to find workable solutions to this problem. It aims to achieve the following:
+* List obfuscating transformations that, when applied correctly, result in (what is currently considered) strong resiliency against manual hybrid static / dynamic analysis;
 
-* List obfuscating transformations that, when applied correctly, result in (what currently consider) strong resiliency against manual hybrid static / dynamic analysis;
+* List verifiable basic requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance), along with *practical* verification processes.
 
-* List verifiable basic parameters that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance), along with *practical* verification processes.
+* List requirements for each specific type of obfuscation (e.g. white-box must implement counter-measures against SPA and DPA).
 
-* List of requirements and recommended parameters for each specific types of obfuscation (e.g. requirements for virtual machine interpreter, white-box must implement counter-measures against SPA and DPA).
-
-* Define processes that can be used by mobile appsec experts for assessing the robustness of obfuscation using white-box and black-box analysis.
-
-## The MASVS model
-
-The MASVS defines a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
-
-1. Strip information
-2. Obfuscate control flow and data
-3. Inhibit reverse engineering processes and tools
-
-In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and type 3 transformations is sufficient. These transformations are generally easy to apply and do not adversely impact the size and performance of the program. However, in some cases it is desirable to apply stronger protections - for example to protect a sensitive computation on Android devices without a dedicated cryptographic processor. In this case, MASVS L4 allows for the use of "advanced" forms of control flow and data obfuscation. This is where things get complicated.
-
-## Goals of this project
+* Define practical processes that can be used by mobile app-sec experts for assessing the robustness of obfuscation using white-box and black-box analysis.
 
 The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *good enough* obfuscation as per the current industry standards and known de-obfuscation methods. We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
 
@@ -41,6 +27,16 @@ Given these assumptions, we define *strong* resiliency as a set of transformatio
 Note that it is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
 
 The situation is similar to "regular" security testing: In practical scenarios, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
+
+## The MASVS model
+
+The MASVS defines a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
+
+1. Strip information
+2. Obfuscate control flow and data
+3. Inhibit reverse engineering processes and tools
+
+In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and type 3 transformations is sufficient. These transformations are generally easy to apply and do not adversely impact the size and performance of the program. However, in some cases it is desirable to apply stronger protections - for example to protect a sensitive computation on Android devices without a dedicated cryptographic processor. In this case, MASVS L4 allows for the use of "advanced" forms of control flow and data obfuscation. This is where things get complicated.
 
 ## What is this subproject about?
 
