@@ -8,7 +8,7 @@ One of the main goals in the guide is to develop a framework for assessing the e
 
 There is no practical, repeatable process to verify whether, and to what grade, a mobile app is resilient against reverse engineering. One of the main goals in the guide is to develop a framework for assessing the effectiveness of a given set of software protections. 
 
-Effective protection schemes combine a variety of of obfuscating transformations and protection mechanisms. In some cases, it is desirable to protect a secret function, or piece of data, using "advanced" (in lack of a better word) control flow and/or data obfuscation methods. In the obfuscation metrics project, we catalogue, discuss and assess these forms of obfuscation. Ideally, we want to arrive at an agreement on what is considered "good enough" obfuscation in the given context(s) (e.g. prevent adversaries from comprehending a sensitive computation in an Android app).
+Effective protection schemes combine a variety of of obfuscating transformations and protection mechanisms. In some cases, it is desirable to protect a secret function, or piece of data, using advanced forms of control flow and/or data obfuscation. In the obfuscation metrics project, we catalogue, discuss and assess these transformations. Ideally, we want to arrive at an agreement on what is considered *good enough* obfuscation in the given context(s) (e.g. prevent adversaries from comprehending a sensitive computation in an Android app).
 
 ### The OWASP model
 
