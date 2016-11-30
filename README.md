@@ -30,7 +30,7 @@ Such transformations also have the following properties:
 
 - If applied correctly, de-obfuscation requires a manual static/dynamic approach using highly customized tools.
 
-It is important to note that such transformations are always uesd in the context of an overall software protection scheme. To be most effective, they must be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within scope of this sub-project.
+It is important to note that such transformations are always be used in the context of an overall software protection scheme. To be most effective, they must be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within scope of this sub-project.
 
 ### Project goals
 
