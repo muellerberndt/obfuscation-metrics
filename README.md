@@ -24,7 +24,7 @@ Here, we are interested only in transformations that:
 
 - Result in a measurable increase in one or more properties, such as algorithmic complexity added and compression distance to the original binary;
 
-- Add both static and dynamic complexity (i.e., affect both the binary and instruction trace).
+- Add both static and dynamic complexity (i.e., affect both the binary file(s) and instruction trace).
 
 Such transformations also have the following properties:
 
@@ -34,7 +34,7 @@ Such transformations also have the following properties:
 
 ### Project goals
 
-* Find an agreeable definition of *strong resiliency* against reverse engineering against manual hybrid static / dynamic analysis (a possible definition is proposed below);
+* Find an agreeable definition of *strong resiliency* against reverse engineering against manual hybrid static / dynamic analysis (one possible definition is proposed below);
 
 * List obfuscating transformations that, when applied correctly, result in *strong resiliency*;
 
@@ -42,19 +42,19 @@ Such transformations also have the following properties:
 
 * List requirements for each specific type of obfuscation (e.g. white-box must implement counter-measures against SPA and DPA).
 
-The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *strong resiliency* (see definition below). We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
+The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *strong resiliency*. We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
 
-- Adversaries have are highly skilled and knowledgable about reverse engineering techniques on the target architecture (Android / iOS) and have access to commercial state-of-the-art tools;
+- Adversaries are highly skilled and knowledgable about reverse engineering techniques on the target architecture (Android / iOS) and have access to commercial state-of-the-art tools;
 
-- Adversaries are well-informed about current attacks on the type(s) of obfuscation used (e.g. reversing virtual machines using symbolic execution, recovering keys from white-boxes using DFA);
+- Adversaries are well-informed about current attacks on the type(s) of obfuscation used (e.g. reversing virtual machines using symbolic execution, recovering keys from white-boxes using DPA);
 
-- Adversaries start with zero knowledge about the target app in question, and without details about the particular implementation obfuscating transformations applied.
+- Adversaries start with zero knowledge about the proprietary parts of the target app, and without details about the particular implementation of the obfuscating transformations applied.
 
 Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that likely requires the adversary to invest *at least one man-month of work to fully de-obfuscate the program.*
 
 Note that it is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
 
-The situation is similar to "regular" security testing: In practical scenarios, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
+The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
 ## Metrics
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
