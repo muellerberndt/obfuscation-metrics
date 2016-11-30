@@ -18,9 +18,7 @@ In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and ty
 
 ### What is this project about?
 
-The goal of this sub-project is to find sensible requirements for advanced control flow and data obfuscations. The results of the project will feed back into the MASVS and MSTG. Here, we are only concerned with "type 2" transformations as defined above. Other types of obfuscations and software protections, such as anti-debugging and anti-tampering, are discussed in the MASVS and MSTG as well, but do not warrant a separate sub-project.
-
-Here, we are interested only in transformations that:
+The goal of this sub-project is to find sensible requirements for advanced control flow and data obfuscations. The results of the project will feed back into the MASVS and MSTG. Here, we are only concerned with tranformations of control flow and data ("type 2") that:
 
 - Result in a measurable increase in one or more properties, such as algorithmic complexity added and compression distance to the original binary;
 
@@ -31,6 +29,8 @@ Such transformations also have the following properties:
 - They incur a significant size and performance penalty (often scalable with obfuscation settings);
 
 - If applied correctly, de-obfuscation requires a manual static/dynamic approach using highly customized tools.
+
+It is important to note that such transformations are always uesd in the context of an overall software protection scheme. To be most effective, they must be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within scope of this sub-project.
 
 ### Project goals
 
