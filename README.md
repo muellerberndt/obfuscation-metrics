@@ -24,7 +24,7 @@ In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and ty
 
 The goal of this sub-project is to find sensible requirements for advanced control flow and data obfuscations. The results of the project will feed back into the MASVS and MSTG. Here, we are only concerned with tranformations of control flow and data ("type 2") that:
 
-- Result in a measurable increase in one or more properties, such as algorithmic complexity added and compression distance to the original binary;
+- Result in a measurable increase in one or more properties, such as [algorithmic complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md) added and [compression distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md) to the original binary;
 
 - Add both static and dynamic complexity (i.e., affect both the binary file(s) and instruction trace).
 
