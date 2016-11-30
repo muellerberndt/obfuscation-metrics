@@ -2,7 +2,7 @@
 
 The [Mobile Application Security Verification Standard (MASVS)](https://github.com/OWASP/owasp-masvs) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the [Mobile Security Testing Guide (MSTG)](https://github.com/OWASP/owasp-mstg) which outlines the necessary controls in more details for each mobile operation system (currently Android and iOS).
 
-One of the main goals in the guide is to develop a framework for assessing the effectiveness of a given set of software protections. 
+One of the main goals in the guide is to develop a framework for assessing the effectiveness of a given set of software protections. "Obfuscation metrics" is an auxiliary project that deals with specific forms of control flow and data obfuscation.
 
 ## The problem
 
