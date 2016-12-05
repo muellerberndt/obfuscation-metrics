@@ -12,29 +12,54 @@ Effective protection schemes combine a variety of of obfuscating transformations
 
 ### The OWASP model
 
-The MASVS defines a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into three types:
+The MASVS defines a set of high level requirements for software protections. In our model, we differentiate between functional defenses (such as root detection and anti-debugging) and obfuscations. Obfuscating transformations are further categorized into two types:
 
-1. Strip information
-2. Obfuscate control flow and data
-3. Inhibit reverse engineering processes and tools
+#### 1. Strip information
 
-In normal cases - for 99% of mobile apps - applying a mix of basic type 1 and type 3 transformations is sufficient. These transformations are generally easy to apply and do not adversely impact the size and performance of the program. However, in some cases it is desirable to apply stronger protections - for example to protect a sensitive computation on Android devices without a dedicated cryptographic processor. In this case, MASVS L4 allows for the use of "advanced" forms of control flow and data obfuscation. This is where things get complicated.
+Compiled programs often retain explanative information that is helpful for the reverse engineer, but isn’t actually needed for the program to run. Debugging symbols that map machine code or byte code to line numbers, function names and variable names are an obvious example.
+
+For instance, class files generated with the standard Java compiler include the names of classes, methods and fields, making it trivial to reconstruct the source code. ELF and Mach-O binaries have a symbol table that contains debugging information, including the names of functions, global variables and types used in the executable.
+Stripping this information makes a compiled program less intelligible while fully preserving its functionality. Possible methods include removing tables with debugging symbols, or renaming functions and variables to random character combinations instead of meaningful names. This process sometimes reduces the size of the compiled program and doesn’t affect its runtime behavior.
+
+#### 2. Obfuscate control flow and data
+
+Program code and data can be transformed in unlimited ways - and indeed, the field of control flow and data obfuscation is highly diverse, with a large amount of research dedicated to both obfuscation and de-obfuscation. Deriving general rules as to what is considered *strong* obfuscation is not an easy task. Our working hypothesis that reverse engineering effort generally increases with program complexity, as long as no well-known automated de-obfuscation techniques exits. Note that it is unrealistic to assume that *strong resiliency* against manual static/dynamic analysis can be proven in a scientifically sound way for a complex program. We merely attempt to define guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
+
+Our assessment methods involves two steps:
+
+1. Apply complexity and distance metrics to quantify the overall impact of the obfuscating transformations;
+2. Define domain-specific criteria based on the state-of-the-art in obfuscation research.
+
+Different types of obfuscating transformations vary in their impact on program complexity. In general, there is a gradient from simple *tricks*, such as packing and encryption of large code blocks and manipulations of executable headers, to more "intricate" forms of obfuscation that add significant complexity to parts of the code, data and execution trace.
+
+Simple transformations can be used to defeat standard static analysis tools without causing too much impact on size on performance. The execution trace of the obfuscated function(s) remains more or less unchanged. De-obfuscation is relatively trivial, and can be accomplished with standard tools without scripting or customization.
+
+Advanced methods aim to hide the semantics of a computation by computing the same function in a more complicated way, or encoding code and data in ways that are not easily comprehensible. Transformations in this category have the following properties:
+
+- The size and performance penalty can be sizable (scales with the obfuscation settings)
+- De-obfuscation requires advanced methods and/or custom tools
+
+A simple example for this kind of obfuscations are opaque predicates. Opaque predicates are redundant code branches added to the program that always execute the same way, which is known a priori to the programmer but not to the analyzer. For example, a statement such as if (1 + 1) = 1 always evaluates to false, and thus always result in a jump to the same location. Opaque predicates can be constructed in ways that make them difficult to identify and remove in static analysis.
+Some types of obfuscation that fall into this category are:
+
+- Pattern-based obfuscation, when instructions are replaced with more complicated instruction sequences
+- Control flow obfuscation
+- Control flow flattening
+- Function Inlining
+- Data encoding and reordering
+- Variable splitting
+- Virtualization
+- White-box cryptography
 
 ### What is this project about?
 
-The goal of this sub-project is to find sensible requirements for advanced control flow and data obfuscations. The results of the project will feed back into the MASVS and MSTG. Here, we are only concerned with tranformations of control flow and data ("type 2") that:
+The goal of this sub-project is to find sensible requirements for advanced control flow and data obfuscations. The results of the project will feed back into the MASVS and MSTG. Here, we are only concerned with tranformations of control flow and data that:
 
 - Result in a measurable increase in one or more properties, such as [algorithmic complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md) added and [compression distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md) to the original binary;
 
 - Add both static and dynamic complexity (i.e., affect both the binary file(s) and instruction trace).
 
-Such transformations also have the following properties:
-
-- They incur a significant size and performance penalty (often scalable with obfuscation settings);
-
-- If applied correctly, de-obfuscation requires a manual static/dynamic approach using highly customized tools.
-
-It is important to note that such transformations must always be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within the scope of this project.
+In practice, such transformations must always be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within the scope of this project.
 
 ### Project goals
 
@@ -56,7 +81,7 @@ The field of control flow and data obfuscation is highly diverse and somewhat co
 
 Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that likely requires the adversary to invest *at least one man-month of work to fully de-obfuscate the program.*
 
-Note that it is unrealistic to assume that strong resiliency as defined above can be proven in a scientifically sound way anytime soon. Initially, we aim for defining guidelines, processes and metrics that enable a human tester to provide a reasonable assessment of whether strong resiliency has been achieved. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
+
 
 The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
