@@ -71,7 +71,7 @@ In practice, such transformations must always be augmented with other types of d
 
 * List requirements for each specific type of obfuscation (e.g. white-box must implement counter-measures against SPA and DPA).
 
-The field of control flow and data obfuscation is highly diverse and somewhat controversial. The goal of this project is to distill general rules and guidelines as to what is considered *strong resiliency*. We make the following starting assumptions that should reflect the most common "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
+As a starting point, we make the following starting assumptions that should reflect the most realistc "worst-case" scenario of a highly skilled adversary attempting to reverse engineer a publicly available mobile app:
 
 - Adversaries are highly skilled and knowledgable about reverse engineering techniques on the target architecture (Android / iOS) and have access to commercial state-of-the-art tools;
 
@@ -80,8 +80,6 @@ The field of control flow and data obfuscation is highly diverse and somewhat co
 - Adversaries start with zero knowledge about the proprietary parts of the target app, and without details about the particular implementation of the obfuscating transformations applied.
 
 Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that likely requires the adversary to invest *at least one man-month of work to fully de-obfuscate the program.*
-
-
 
 The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
