@@ -84,6 +84,7 @@ Given these assumptions, we define *strong* resiliency as a set of transformatio
 The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
 ## Metrics
+
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
 - [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md)
 
@@ -96,6 +97,7 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 ## Tools
 
 - [Metrics script](https://github.com/b-mueller/obfuscation-metrics/blob/master/tools/obfm.py)
+- [LLVM bitcode metrics pass plugin](https://github.com/b-mueller/obfuscation-metrics/tree/master/tools/llvm-bitcode-metrics)
 
 ## Sample Programs
 
