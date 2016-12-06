@@ -83,10 +83,19 @@ Given these assumptions, we define *strong* resiliency as a set of transformatio
 
 The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
-## Metrics
+## Prososed Metrics
 
 - [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
 - [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md)
+
+### Traditional code complexity metrics
+
+- Number of edges in the call graph
+- Cumulated number of edges in the control flow graph
+- Cumulated number of basic blocs
+- Cumulated number of instructions
+- Cyclomatic number
+- Oviedo Complexity
 
 ## Transformations and Testing Processes
 
