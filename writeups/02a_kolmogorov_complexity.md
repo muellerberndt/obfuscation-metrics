@@ -18,7 +18,7 @@ Conveniently, Kolmogorov complexity can be approximated by lossless compression 
 
 <center>*ΔK = K(O) - K(R)*</center>
 
-## Sample program
+## Sample Program
 
 Our test object is a self-contained [OATH TOTP generator written in C](https://github.com/b-mueller/kolmogorov-metric/tree/master/testprograms/oath-totp). OATH TOTP is an extension to the HMAC-based One-Time Password (HOTP) algorithm that adds support for a time-based moving factor (5). The program consists of a TOTP implementation and SHA1 hashing function.
 
