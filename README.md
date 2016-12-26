@@ -52,8 +52,8 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 
 ## Proposed Metrics
 
-- [Kolmogorov Complexity](https://github.com/b-mueller/obfuscation-metrics/blob/master/02a_kolmogorov_complexity.md)
-- [Normalized Compression Distance](https://github.com/b-mueller/obfuscation-metrics/blob/master/02b_normalized_compression_distance.md)
+- [Kolmogorov Complexity](writeups/02a_kolmogorov_complexity.md)
+- [Normalized Compression Distance](writeups/02b_normalized_compression_distance.md)
 
 ### Traditional Code Complexity Metrics
 
@@ -66,7 +66,7 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 
 ## Testing Tools
 
-- [Metrics script](tools/obfm.py)
+- [Metrics script](tools/python-metrics/obfm.py)
 - [LLVM bitcode metrics pass plugin](tools/llvm-bitcode-metrics)
 
 ## Sample Code and Crackmes
