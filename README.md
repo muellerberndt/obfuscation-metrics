@@ -12,8 +12,6 @@ Client-side software protections are increasingly used in mobile apps. Unfortuna
 
 "Processes and Metrics for Assessing Obfuscation Effectiveness" is an auxiliary project, the results of which will be used in the OWASP Mobile Application Verification Standard (MASVS) and Mobile Security Testing Guide (MSTG). It deals with specific forms of control flow and data obfuscation.
 
-The [MASVS](https://github.com/OWASP/owasp-masvs) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the [MSTG](https://github.com/OWASP/owasp-mstg) which outlines the controls in more details for each mobile operation system (currently Android and iOS).
-
 Here, we are only concerned with transformations that:
 
 - Result in a measurable increase in one or more properties, such as [algorithmic complexity](02a_kolmogorov_complexity.md) added and [compression distance](02b_normalized_compression_distance.md) to the original binary;
@@ -74,3 +72,6 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 ## Sample Code and Crackmes
 
 - [Self-contained OATH-TOTP Generator in C](https://github.com/b-mueller/obfuscation-metrics/tree/master/testprograms/oath-totp)
+
+## About the OWASP MASVS and MSTG
+The [OWASP Mobile Security Verification Standard (MASVS)](https://github.com/OWASP/owasp-masvs) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines four verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the [OWASP Mobile Security Testing Guide (MSTG)](https://github.com/OWASP/owasp-mstg) which outlines the controls in more details for each mobile operation system (currently Android and iOS).
