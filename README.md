@@ -24,11 +24,11 @@ In practice, control flow and data transformations must always be augmented with
 
 ### Project Goals
 
-* Find an agreeable definition of *strong resiliency* against a number of tasks, such as program comprehension and modification;
+* Find an agreeable definition of *strong resiliency* against a number of tasks, such as comprehension and modification of the program or its modules;
 
 * List obfuscating transformations that, when applied correctly, result in *strong resiliency* against those tasks;
 
-* List verifiable requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations, minimum value for normalized compression distance), along with practical verification processes.
+* List verifiable requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations), along with practical verification processes.
 
 * List specific requirements for each specific type of obfuscation.
 
@@ -36,11 +36,11 @@ As a starting point, we assume the "worst-case" scenario of a highly skilled and
 
 - Adversaries are highly skilled and knowledgable about reverse engineering techniques on the target architecture and have access to commercial state-of-the-art tools;
 
-- Adversaries are well-informed about current attacks on the type(s) of obfuscation used (program analysis, symbolic execution, DPA/DFA,...);
+- Adversaries are well-informed about current attacks on the type(s) of obfuscation used (static analysis, dynamic analysis using concrete and/or symbolic execution, domain-specific attacks such as DFA/DPA, etc.);
 
-- Adversaries start with zero knowledge about the proprietary parts of the target app, and without details about the particular implementation of the obfuscating transformations applied.
+- Adversaries start with zero knowledge about the particular proprietary implementation / obfuscating transformations applied.
 
-Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that - considering the current state-of-the-art in binary analysis - forces the skilled adversary to invest significant effort (i.e. a man-month or more of manual analysis) to reach their goal (TODO: Find better definition).
+Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that - considering the current state-of-the-art in binary analysis - forces the skilled adversary to invest significant effort (i.e. a man-month of manual analysis and tool development) to reach their goal (TODO: Find better definition).
 
 The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
 
@@ -49,6 +49,13 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 - [Control Flow and Data Obfuscation](writeups/03a_control_flow_and_data_obfuscation.md)
 - [Virtualization](writeups/03b_virtualization.md)
 - [White-box Cryptography](writeups/03c_whitebox_cryptography.md)
+
+## Effectiveness Criteria
+
+- [Difficulty of CFG Recovery]
+
+
+
 
 ## Proposed Metrics
 
