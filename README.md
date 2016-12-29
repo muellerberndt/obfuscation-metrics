@@ -69,7 +69,7 @@ An experienced tester should be able to use the metrics proposed as a guideline 
 - Cyclomatic number
 - Oviedo complexity
 
-## Testing Tools
+## Metrics Tools
 
 - [Metrics script](tools/python-metrics/obfm.py)
 - [LLVM bitcode metrics pass plugin](tools/llvm-bitcode-metrics)
