@@ -53,7 +53,7 @@ An experienced tester should be able to use the metrics proposed as a guideline 
 ## Effectiveness Criteria
 
 - [Difficulty of CFG recovery]
-- [Slowdown of state-of-the art analysis tools]
+- [Slowdown of program analysis algorithms]
 
 ## Useful Metrics
 
@@ -77,6 +77,7 @@ An experienced tester should be able to use the metrics proposed as a guideline 
 ## Crackmes
 
 - [License Check 1 - Android](crackmes/android/01_license_check_1/)
+- [License Check 2 - Android](crackmes/android/02_license_check_2/)
 
 ## About the OWASP MASVS and MSTG
 The [OWASP Mobile Security Verification Standard (MASVS)](https://github.com/OWASP/owasp-masvs) is a standard for mobile app security. It lists requirements for security controls and software protection mechanisms, and defines verification levels that can be applied to achieve different grades of security and resiliency. It is accompanied by the [OWASP Mobile Security Testing Guide (MSTG)](https://github.com/OWASP/owasp-mstg) which outlines the controls in more details for each mobile operation system (currently Android and iOS).
