@@ -10,39 +10,39 @@ Client-side software protections are increasingly used in mobile apps. Unfortuna
 
 ### What is This Project About?
 
-"Processes and Metrics for Assessing Obfuscation Effectiveness" is an auxiliary project, the results of which will be used in the OWASP Mobile Application Verification Standard (MASVS) and Mobile Security Testing Guide (MSTG). It deals with specific forms of control flow and data obfuscation.
+"Processes and Metrics for Assessing Obfuscation Effectiveness" is an auxiliary project, the results of which will feed back into the OWASP Mobile Application Verification Standard (MASVS) and Mobile Security Testing Guide (MSTG). It deals with forms of control flow and data obfuscation that aim to make comprehension tasks more difficult.
 
-Here, we are only concerned with transformations that:
+Our working hypothesis that reverse engineering effort increases with program complexity, provided that transformations are used effectively and well-known automated de-obfuscation techniques are countered. Based on this assumption, we define criteria, processes and metrics that enable a human tester to provide a reasonable assessment of the resiliency level achieved by a set of transformations. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
+
+We are only concerned with transformations that:
 
 - Result in a measurable increase in one or more properties, such as [algorithmic complexity](02a_kolmogorov_complexity.md) added and [compression distance](02b_normalized_compression_distance.md) to the original binary;
 
 - Add both static and dynamic complexity (i.e., affect both the binary file(s) and instruction trace).
 
-Our working hypothesis that reverse engineering effort increases with program complexity, provided that transformations are used effectively and well-known automated de-obfuscation techniques are countered. Based on this assumption, we attempt to define criteria, processes and metrics that enable a human tester to provide a reasonable assessment of the resiliency level achieved by a set of transformations. Ideally, experimental data can then be used to verify (or refute) the proposed metrics.
-
 In practice, control flow and data transformations must always be augmented with other types of defenses, such as anti-debugging and anti-tampering. These measures are discussed in the MASVS and MSTG as well, but are not within the scope of this project.
 
 ### Project Goals
 
-* Find an agreeable definition of *strong resiliency* against a number of tasks, such as comprehension and modification of the program or its modules;
+* Find an agreeable definition of *strong resiliency* against program comprehension (and, by extension, program modification);
 
 * List obfuscating transformations that, when applied correctly, result in *strong resiliency* against those tasks;
 
 * List verifiable requirements that must *always* be fulfilled (e.g. algorithmic complexity added by the transformations), along with practical verification processes.
 
-* List specific requirements for each specific type of obfuscation.
+* List additional requirements for specifics type of obfuscation.
 
-As a starting point, we assume the "worst-case" scenario of a highly skilled and resourceful adversary performing a tool-supported manual attack:
+As a starting point, we assume the "worst-case" scenario of a highly skilled and resourceful adversary performing a tool-supported manual attack.
 
 - Adversaries are highly skilled and knowledgable about reverse engineering techniques on the target architecture and have access to commercial state-of-the-art tools;
 
 - Adversaries are well-informed about current attacks on the type(s) of obfuscation used (static analysis, dynamic analysis using concrete and/or symbolic execution, domain-specific attacks such as DFA/DPA, etc.);
 
-- Adversaries start with zero knowledge about the particular proprietary implementation / obfuscating transformations applied.
+- Adversaries start with zero knowledge about the particular implementation / set of obfuscating transformations applied.
 
-Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that - considering the current state-of-the-art in binary analysis - forces the skilled adversary to invest significant effort (i.e. a man-month of manual analysis and tool development) to reach their goal (TODO: Find better definition).
+(TODO: Find better definition?) Given these assumptions, we define *strong* resiliency as a set of transformations and parameters that - considering the current state-of-the-art in binary analysis - forces the skilled adversary to invest significant effort (i.e. a man-month of manual analysis and tool development) to reach their goal .
 
-The situation is analogue to "regular" security testing: For real-world apps, generic, automated static/dynamic analysis in insufficient to prove security of a program. Manual verification by an experienced tester is still the only reliable way to achieve security.
+An experienced tester should be able to use the metrics proposed as a guideline in verifying software resiliency.
 
 ## Transformations
 
@@ -52,12 +52,10 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 
 ## Effectiveness Criteria
 
-- [Difficulty of CFG Recovery]
+- [Difficulty of CFG recovery]
+- [Slowdown of state-of-the art analysis tools]
 
-
-
-
-## Proposed Metrics
+## Useful Metrics
 
 - [Kolmogorov Complexity](writeups/02a_kolmogorov_complexity.md)
 - [Normalized Compression Distance](writeups/02b_normalized_compression_distance.md)
@@ -65,9 +63,9 @@ The situation is analogue to "regular" security testing: For real-world apps, ge
 ### Traditional Code Complexity Metrics
 
 - Number of edges in the call graph
-- Cumulated number of edges in the control flow graph
-- Cumulated number of basic blocs
-- Cumulated number of instructions
+- Cumulative number of edges in the control flow graph
+- Cumulative number of basic blocs
+- Cumulative number of instructions
 - Cyclomatic number
 - Oviedo complexity
 
