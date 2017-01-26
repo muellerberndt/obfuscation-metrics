@@ -12,7 +12,7 @@
 - Functions: 13
 - Compiler cmdline: clang -Os
 
-Mini-TOTP is a self-contained OATH-TOTP implementation with a hardcoded seed. Normalized compression distance and increase in Kolmogorov complexity were calculated for various combinations of obfuscating transformations.
+Mini-TOTP is a self-contained OATH-TOTP implementation with a hardcoded seed. Normalized compression distance and absolute increase in Kolmogorov complexity were calculated for various combinations of obfuscating transformations.
 
 |Transformation|Cmdline|ΔK|NCD|
 |---|---|---|---|
